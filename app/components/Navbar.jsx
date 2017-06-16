@@ -7,9 +7,9 @@ import WhoAmI from './WhoAmI'
 
 /* -----------------    COMPONENT     ------------------ */
 
-const Navbar = ({user, cart}) => {
+const Navbar = ({ auth }) => {
   return (
-    <nav className="navbar navbar-default">
+    <nav className="navbar navbar-default myNavbar">
       <div className="container">
         <div className="navbar-header">
           <button
@@ -21,25 +21,25 @@ const Navbar = ({user, cart}) => {
             <span className="icon-bar" />
             <span className="icon-bar" />
           </button>
-          <Link className="navbar-brand" to="/">limitless leggings</Link>
+          <Link className="navbar-brand" to="/">OkCollab</Link>
         </div>
-        <div className="collapse navbar-collapse">
+        <div id="navbar-links" className="collapse navbar-collapse">
           <ul className="nav navbar-nav">
             <li>
-              <Link to="/products" activeClassName="active">shop</Link>
+              <Link to="/browse" activeClassName="active">browse</Link>
             </li>
             <li>
-              <Link to="/about" activeClassName="active">our company</Link>
+              <Link to="/messages" activeClassName="active">messages</Link>
             </li>
             <li>
-              <Link to="/signup" activeClassName="active">sign up</Link>
+              {!auth ? null : <Link to={`/users/${auth.id}`} activeClassName="active">my profile</Link>}
             </li>
             <li>
-              <Link to="/cart" activeClassName="active">your cart ({cart.length} {cart.length === 1 ? 'item' : 'items'})</Link>
+             {!auth ? <Link to="/signup" activeClassName="active">sign up</Link> : null}
             </li>
           </ul>
           <div className="login-navbar">
-            {user ? <WhoAmI/> : <Login/>}
+            {auth ? <WhoAmI /> : <Login />}
           </div>
         </div>
       </div>
@@ -49,6 +49,7 @@ const Navbar = ({user, cart}) => {
 
 /* -----------------    CONTAINER     ------------------ */
 
-const mapStateToProps = ({auth, cart}) => ({user: auth, cart})
+const mapStateToProps = ({ auth }) => ({ auth })
 
 export default connect(mapStateToProps)(Navbar)
+

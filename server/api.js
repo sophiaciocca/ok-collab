@@ -7,7 +7,6 @@ api
   .use('/auth', require('./auth'))
   .use('/users', require('./users'))
   .use('/products', require('./products'))
-  .use('/cart', require('./cartitems'))
   .use('/categories', require('./categories'))
 
 // No routes matched? 404.

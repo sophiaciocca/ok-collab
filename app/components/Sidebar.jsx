@@ -8,20 +8,13 @@ const Sidebar = ({categoryList}) => {
   return (
     <sidebar>
       <section>
-        <h4>Categories</h4>
+        <h4>Filter By:</h4>
       </section>
       <hr />
       <ul className="list-unstyled">
-        <li><Link to="/products">All</Link></li>
-        {
-          categoryList.map(category => {
-            return (
-              <li key={category.id}>
-                <Link to={`/categories/${category.id}`}>{category.title}</Link>
-              </li>
-            )
-          })
-        }
+        <li><Link to="/browse">All</Link></li>
+        <li><Link to="#">By City:</Link></li>
+        <li><Link to="#">By Skill:</Link></li>
       </ul>
     </sidebar>
   )
@@ -34,3 +27,16 @@ const Sidebar = ({categoryList}) => {
 const mapStateToProps = ({categories}) => ({categoryList: categories.categoryList})
 
 export default connect(mapStateToProps)(Sidebar)
+
+/* (Category List Mapping from Grace Shopper)
+        {
+          categoryList.map(category => {
+            return (
+              <li key={category.id}>
+                <Link to={`/categories/${category.id}`}>{category.title}</Link>
+              </li>
+            )
+          })
+        }
+
+        */

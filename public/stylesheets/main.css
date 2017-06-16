@@ -30,3 +30,54 @@
 .productdescription {
   font-size: 125%;
 }
+
+.myNavbar {
+  background-color: #261758;
+  border: #261758;
+}
+
+.login-button {
+  background-color: #887CAF;
+  border: #887CAF;
+  border-radius: 16px;
+}
+
+.whoami-user-name {
+  color: white;
+  font-weight: bold;
+  margin-right: 1em;
+}
+
+.login-button:hover {
+  background-color: #13073a;
+  color: white;
+  border: 1px;
+  border-color: white;
+}
+
+.login-navbar {
+  float: right;
+}
+
+.circle-img {
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.user-img {
+  width: 300px;
+  height: 300px;
+}
+
+.navbar-img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 1em;
+}
+
+.user-info h4 {
+  font-weight: bold;
+}

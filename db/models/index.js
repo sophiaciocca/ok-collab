@@ -18,7 +18,6 @@ const app = require('APP')
       ProductItem: require('./productItem'),
       Product: require('./product'),
       Category: require('./category'),
-      CartItem: require('./cartItem'),
       Order: require('./order'),
       OrderItem: require('./orderItem')
     }

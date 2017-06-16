@@ -19,17 +19,27 @@ function seedEverything() {
 }
 
 const users = seed(User, {
-  god: {
-    email: 'god@example.com',
-    name: 'So many names',
+  sophia: {
+    email: 'sophia@example.com',
+    name: 'Sophia Ciocca',
     password: '1234',
-    isAdmin: true
+    city: 'New York City',
+    photoUrl: 'http://i63.tinypic.com/2yyrq5k.jpg',
+    blurb: "Hi! I'm Sophia. After singing a cappella in college and constantly harmonizing with my roommate, I'm looking for jam partners here in NYC. Not necessarily looking to perform much, but just to make music for the sake of making music. Hit me up if you're interested!",
+    style: "It depends on the collab -- I like the indie folk sound, as well as traditional a cappella. I'm definitely down to try anything.",
+    lookingFor: "A partner or a few people to make covers with or write songs with.",
+    skills: ['guitar', 'singing', 'songwriting', 'piano', 'ukulele']
   },
-  barack: {
-    name: 'Barack Obama',
-    email: 'barack@example.gov',
+  bono: {
+    name: 'Bono',
+    email: 'bono@example.gov',
     password: '1234',
-    isAdmin: false
+    city: 'San Francisco',
+    photoUrl: 'http://i68.tinypic.com/2129t3m.jpg',
+    blurb: "I know everyone already wants to work with me, but I thought I'd get on this site anyway, to see if there's some serious untapped talent somewhere. I'm probably too busy for you, but feel free to message me anyway.",
+    style: "Rock, mostly.",
+    lookingFor: "More charities to donate to.",
+    skills: ['guitar', 'singing', 'songwriting']
   }
 })
 
@@ -48,11 +58,11 @@ const categories = seed(Category, {
 const orders = seed(Order, ({users, products}) => ({
   order1: {
     product_id: products.galaxy.id,
-    user_id: users.barack.id
+    user_id: users.sophia.id
   },
   order2: {
     product_id: products.snazzyworkout.id,
-    user_id: users.god.id
+    user_id: users.bono.id
   }
 }))
 

@@ -7,7 +7,8 @@ const {
   mustBeLoggedIn,
   forbidden,
   assertAdmin,
-  selfOrAdmin
+  selfOrAdmin,
+  selfOnly
 } = require('./auth.filters')
 
 module.exports = require('express').Router()
@@ -23,13 +24,13 @@ module.exports = require('express').Router()
             if (!user) {
               res.sendStatus(404)
             }
-            req.requestedUser = user
+            req.requestedUser = user;
             next()
           })
           .catch(next)
       }
     })
-  .get('/', assertAdmin,
+  .get('/',
     (req, res, next) =>
     User.findAll()
     .then(users => res.json(users))
@@ -61,11 +62,11 @@ module.exports = require('express').Router()
         }
       })
   })
-  .get('/:userId', selfOrAdmin,
+  .get('/:userId',
     (req, res, next) => {
-      res.json(req.user)
+      res.json(req.requestedUser)
     })
-  .put('/:userId', selfOrAdmin,
+  .put('/:userId', selfOnly,
     (req, res, next) => {
       if (!req.requestedUser) res.sendStatus(404)
       req.requestedUser.update(req.body) // only admin should be able to set admin privileges -- KHLM

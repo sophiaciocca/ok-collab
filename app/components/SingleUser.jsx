@@ -10,7 +10,7 @@ import Sidebar from '../Sidebar'
 
 /* -----------------    COMPONENT     ------------------ */
 
-class SingleProduct extends Component {
+class SingleUser extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -73,56 +73,56 @@ class SingleProduct extends Component {
 
     return (
       <div id="main">
-      <div className="col-xs-2">
-        <Sidebar/>
-      </div>
-      <div className="col-xs-10">
-        <div>
-          <div className="col-md-6 col-xs-10">
-            <img src={selectedProduct.photoUrl} className="img-thumbnail"/>
-          </div>
+        <div className="col-xs-2">
+          <Sidebar />
+        </div>
+        <div className="col-xs-10">
+          <div>
+            <div className="col-md-6 col-xs-10">
+              <img src={selectedProduct.photoUrl} className="img-thumbnail" />
+            </div>
 
-          <div className="col-md-4 col-xs-8 select-size-quantity">
-            <h2>{selectedProduct.title}</h2>
-            <p className="productdescription">{selectedProduct.description}</p>
-            <hr />
-            <FormGroup controlId="formControlsSelect">
-              <ControlLabel>Select Size</ControlLabel>
-              <FormControl onChange={updateSelectedSize} componentClass="select">
-                <option>Select a size here</option>
-                {selectedProduct.productItems.map((productItem) => (
+            <div className="col-md-4 col-xs-8 select-size-quantity">
+              <h2>{selectedProduct.title}</h2>
+              <p className="productdescription">{selectedProduct.description}</p>
+              <hr />
+              <FormGroup controlId="formControlsSelect">
+                <ControlLabel>Select Size</ControlLabel>
+                <FormControl onChange={updateSelectedSize} componentClass="select">
+                  <option>Select a size here</option>
+                  {selectedProduct.productItems.map((productItem) => (
                     <option key={productItem.id} value={productItem.size}>{productItem.size}</option>
                   ))}
-              </FormControl>
+                </FormControl>
 
-              <ControlLabel>Select Quantity</ControlLabel>
-              <FormControl onChange={updateSelectedQuantity} componentClass="select">
-                <option>Select a quantity</option>
-                {createQuantityArrayFromSize(selectedSize).map((quantity, idx) => (
-                  <option key={idx} value={quantity}>{quantity}</option>
-                ))}
-              </FormControl>
-            </FormGroup>
+                <ControlLabel>Select Quantity</ControlLabel>
+                <FormControl onChange={updateSelectedQuantity} componentClass="select">
+                  <option>Select a quantity</option>
+                  {createQuantityArrayFromSize(selectedSize).map((quantity, idx) => (
+                    <option key={idx} value={quantity}>{quantity}</option>
+                  ))}
+                </FormControl>
+              </FormGroup>
 
-            <form onSubmit={handleSubmit}>
-              {
-                this.state.selectedQuantity > 0
-                ? <Button type="submit" bsStyle="success">Add to Cart</Button>
-                : <Button type="submit" bsStyle="success" disabled>Add to Cart</Button>
-              }
-            </form>
+              <form onSubmit={handleSubmit}>
+                {
+                  this.state.selectedQuantity > 0
+                    ? <Button type="submit" bsStyle="success">Add to Cart</Button>
+                    : <Button type="submit" bsStyle="success" disabled>Add to Cart</Button>
+                }
+              </form>
+            </div>
           </div>
         </div>
       </div>
-    </div>
     )
   }
 }
 
 /* -----------------    CONTAINER     ------------------ */
 
-const mapStateToProps = ({products}) => ({
-  selectedProduct: products.selectedProduct
+const mapStateToProps = ({ products }) => ({
+  selectedUser: products.selectedProduct
 })
 
 const mapDispatchToProps = (dispatch) => {

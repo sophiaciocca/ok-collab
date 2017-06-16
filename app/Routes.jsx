@@ -5,32 +5,25 @@ import {render} from 'react-dom'
 import {connect, Provider} from 'react-redux'
 
 import Root from './components/Root'
-import ProductList from './components/Product/ProductList'
-import SingleProduct from './components/Product/SingleProduct'
+import UserProfile from './components/UserProfile'
+import UserList from './components/UserList'
+// import SingleProduct from './components/Product/SingleProduct'
 import NotFound from './components/NotFound'
-import Cart from './components/Cart'
-import Checkout from './components/Checkout'
-import Sidebar from './components/Sidebar'
-import Signup from './components/Signup'
-import CompletedOrder from './components/CompletedOrder'
-import About from './components/About'
+// import Sidebar from './components/Sidebar'
+// import Signup from './components/Signup'
+// import About from './components/About'
 
-import { fetchProducts, fetchProductById, fetchProductsByCategoryId } from './redux/products'
+// import { fetchProducts, fetchProductById, fetchProductsByCategoryId } from './redux/products'
+import { fetchUsers, fetchUserById } from './redux/users'
 import { fetchCategories } from './redux/categories'
-import { fetchCartItems } from './redux/cartItems'
+import { retrieveLoggedInUser } from './redux/auth';
 
-const Routes = ({fetchInitialData, onCartEnter, onProductEnter, onCategoryEnter, onCheckoutEnter}) => (
+const Routes = ({fetchInitialData, onUserEnter, onCategoryEnter, onCheckoutEnter}) => (
   <Router history={browserHistory}>
     <Route path="/" component={Root} onEnter={fetchInitialData}>
-      <IndexRedirect to="/products" />
-      <Route path="/signup" component={Signup} />
-      <Route path="/products" component={ProductList} onEnter={fetchInitialData} />
-      <Route path="/categories/:categoryId" component={ProductList} onEnter={onCategoryEnter} />
-      <Route path="/products/:productId" component={SingleProduct} onEnter={onProductEnter} />
-      <Route path="/cart" component={Cart} onEnter={onCartEnter}/>
-      <Route path="/checkout" component={Checkout} onEnter={onCartEnter} />
-      <Route path="/completedorder" component={CompletedOrder} />
-      <Route path="/about" component={About} />
+      <IndexRedirect to="/browse" />
+      <Route path="/browse" component={UserList} />
+      <Route path="/users/:userId" component={UserProfile} onEnter={onUserEnter}/>
     </Route>
     <Route path='*' component={NotFound} />
   </Router>
@@ -38,22 +31,23 @@ const Routes = ({fetchInitialData, onCartEnter, onProductEnter, onCategoryEnter,
 
 /* -----------------    CONTAINER     ------------------ */
 
-const mapProps = null
+const mapStateToProps = null
 
-const mapDispatch = dispatch => ({
+const mapDispatchToProps = dispatch => ({
   fetchInitialData: () => {
-    dispatch(fetchProducts())
-    dispatch(fetchCategories())
-    dispatch(fetchCartItems())
+    // dispatch(retrieveLoggedInUser())
+    dispatch(fetchUsers())
+    // dispatch(fetchCategories())
   },
-  onProductEnter: (nextRouterState) => {
-    const productId = nextRouterState.params.productId
-    dispatch(fetchProductById(productId)) // dispatches specific reducer that does axios request w/ productId of clicked-on product
+  onUserEnter: (nextRouterState) => {
+    let userId = nextRouterState.params.userId
+    dispatch(fetchUserById(userId)) // dispatches specific reducer that does axios request w/ productId of clicked-on product
   },
-  onCategoryEnter: (nextRouterState) => {
-    const categoryId = nextRouterState.params.categoryId
-    dispatch(fetchProductsByCategoryId(categoryId))
-  }
+  // onCategoryEnter: (nextRouterState) => {
+  //   const categoryId = nextRouterState.params.categoryId
+  //   dispatch(fetchProductsByCategoryId(categoryId))
+  // }
 })
 
-export default connect(mapProps, mapDispatch)(Routes)
+export default connect(mapStateToProps, mapDispatchToProps)(Routes)
+

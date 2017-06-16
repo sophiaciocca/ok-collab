@@ -54,6 +54,15 @@ export const whoami = () =>
       })
       .catch(failed => dispatch(authenticated(null)))
 
+export const retrieveLoggedInUser = () => dispatch => {
+  axios.get('/api/auth/whoami')
+  .then(res => {
+    console.log("WHAT IS RETRIEVELOGGEDINUSER RES?", res)
+    dispatch(set(res.data))
+  })
+  .catch(err => console.error('Problem fetching current user', err));
+};
+
 export const signup = (credentials) =>
   dispatch =>
     axios.post('/api/users',
