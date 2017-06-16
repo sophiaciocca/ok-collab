@@ -28,7 +28,7 @@ const users = seed(User, {
     blurb: "Hi! I'm Sophia. After singing a cappella in college and constantly harmonizing with my roommate, I'm looking for jam partners here in NYC. Not necessarily looking to perform much, but just to make music for the sake of making music. Hit me up if you're interested!",
     style: "It depends on the collab -- I like the indie folk sound, as well as traditional a cappella. I'm definitely down to try anything.",
     lookingFor: "A partner or a few people to make covers with or write songs with.",
-    skills: ['guitar', 'singing', 'songwriting', 'piano', 'ukulele'],
+    skills: ['guitar', 'vocals', 'songwriting', 'piano', 'ukulele'],
     uploads: ['https://www.youtube.com/embed/GxldRwvu0JU', 'https://www.youtube.com/embed/NhDUGXlDf_I']
   },
   bono: {
@@ -40,8 +40,20 @@ const users = seed(User, {
     blurb: "I know everyone already wants to work with me, but I thought I'd get on this site anyway, to see if there's some serious untapped talent somewhere. I'm probably too busy for you, but feel free to message me anyway.",
     style: "Rock, mostly.",
     lookingFor: "More charities to donate to.",
-    skills: ['guitar', 'singing', 'songwriting'],
+    skills: ['guitar', 'vocals', 'songwriting'],
     uploads: ['https://www.youtube.com/embed/DJeJgmbab0Y', 'https://www.youtube.com/embed/be8YuyneES4']
+  },
+  jennywu: {
+    name: 'Jenny Wu',
+    email: 'jenny@example.com',
+    password: '1234',
+    city: 'New York City',
+    photoUrl: 'http://i64.tinypic.com/2003gp2.jpg',
+    blurb: "Hello, I'm Jenny! I like happiness, and sunshine, and have a voice like an angel. Let's go frolic in a field together!",
+    style: "A cappella, cover songs",
+    lookingFor: "More people to sing with!",
+    skills: ['vocals', 'guitar', 'songwriting'],
+    uploads: ['https://www.youtube.com/embed/WSbDcG_ZuDg']
   }
 })
 

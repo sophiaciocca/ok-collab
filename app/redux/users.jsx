@@ -75,7 +75,6 @@ export const fetchUsers = () => dispatch => {
 export const fetchUserById = (id) => dispatch => {
   axios.get(`/api/users/${id}`)
     .then(res => {
-      console.log("What is RES in fetchUserById?", res)
       dispatch(select(res.data))
     })
     .catch(err => console.error('Fetching product unsuccessful', err))

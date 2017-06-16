@@ -48,7 +48,7 @@
   margin-right: 1em;
 }
 
-.login-button:hover {
+button:hover {
   background-color: #13073a;
   color: white;
   border: 1px;
@@ -80,4 +80,14 @@
 
 .user-info h4 {
   font-weight: bold;
+}
+
+.btn-dark {
+  background-color: #403075;
+  border: none;
+}
+
+.btn-dark:hover {
+  color: white;
+  background-color: #13073a;
 }
