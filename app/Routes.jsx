@@ -7,7 +7,7 @@ import {connect, Provider} from 'react-redux'
 import Root from './components/Root'
 import UserProfile from './components/UserProfile'
 import UserList from './components/UserList'
-// import SingleProduct from './components/Product/SingleProduct'
+import MessageList from './components/MessageList'
 import NotFound from './components/NotFound'
 // import Sidebar from './components/Sidebar'
 // import Signup from './components/Signup'
@@ -24,6 +24,7 @@ const Routes = ({fetchInitialData, onUserEnter, onCategoryEnter, onCheckoutEnter
       <IndexRedirect to="/browse" />
       <Route path="/browse" component={UserList} />
       <Route path="/users/:userId" component={UserProfile} onEnter={onUserEnter}/>
+      <Route path="/messages" component={MessageList}/>
     </Route>
     <Route path='*' component={NotFound} />
   </Router>

@@ -26,7 +26,7 @@ module.exports = db => db.define('users', {
   style: TEXT,
   lookingFor: TEXT,
   skills: {
-    type: ARRAY(TEXT),
+    type: ARRAY(STRING),
     // set: function (str) {
     //   var arrayOfSkills;
     //   if (typeof str === 'string') {
@@ -39,6 +39,9 @@ module.exports = db => db.define('users', {
     //     this.setDataValue('skills', arrayOfSkills);
     //   }
     // }
+  },
+  uploads: {
+    type: ARRAY(STRING),
   },
 
 
