@@ -17,13 +17,15 @@ import Recommendations from './Recommendations'
 
 const customStyles = {
   content: {
+    width: '30vw',
+    height: '20em',
     top: '50%',
     left: '50%',
     right: 'auto',
     bottom: 'auto',
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
-    color: 'blue'
+    color: 'black'
   }
 };
 
@@ -118,26 +120,22 @@ class UserProfile extends React.Component {
                   style={customStyles}
                   contentLabel="Send Message"
                 >
-
-                  <h2 ref={subtitle => this.subtitle = subtitle}>Send Message to {user.name}</h2>
-                  <button onClick={this.closeModal}>close</button>
-                  <div>I am a modal</div>
+                  <button className="btn btn-sm close-btn" onClick={this.closeModal}>x</button>
+                  <h3 className="msg-title" >Send Message to {user.name}</h3>
                   <form>
-                    <input />
-                    <button>tab navigation</button>
-                    <button>stays</button>
-                    <button>inside</button>
-                    <button>the modal</button>
+                    <textarea className="msg-textarea" />
+                    <br />
+                    <button className="btn">Send Message</button>
                   </form>
                 </Modal>
               </div>
 
+              {/*  <div className="col-md-2">
+          <Recommendations />
+        </div> */}
 
             </div>
             : null}
-          {/*  <div className="col-md-2">
-          <Recommendations />
-        </div> */}
 
         </div>
       </div>

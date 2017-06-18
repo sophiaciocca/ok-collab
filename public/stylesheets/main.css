@@ -97,6 +97,15 @@ button:hover {
   border-right: 1px;
 }
 
-.modal-style {
-  background-color: blue;
+.close-btn {
+  float: right;
+}
+
+.msg-textarea {
+  width: 100%;
+  height: 10em;
+}
+
+.msg-title {
+  color: black;
 }

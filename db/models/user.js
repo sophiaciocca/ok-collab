@@ -14,7 +14,7 @@ module.exports = db => db.define('users', {
     }
   },
   city: {
-    type: ENUM('New York City', 'San Francisco'),
+    type: ENUM('NYC', 'San Francisco'),
   },
   photoUrl: {
     type: STRING,
