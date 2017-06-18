@@ -6,9 +6,11 @@ import {connect, Provider} from 'react-redux'
 
 import Root from './components/Root'
 import UserProfile from './components/UserProfile'
+import MyProfile from './components/MyProfile'
 import UserList from './components/UserList'
 import MessageList from './components/MessageList'
 import NotFound from './components/NotFound'
+import TestingContentEditable from './components/TestingContentEditable'
 // import Sidebar from './components/Sidebar'
 // import Signup from './components/Signup'
 // import About from './components/About'
@@ -44,11 +46,9 @@ const mapDispatchToProps = dispatch => ({
     let userId = nextRouterState.params.userId
     dispatch(fetchUserById(userId)) // dispatches specific reducer that does axios request w/ productId of clicked-on product
   },
-  // onCategoryEnter: (nextRouterState) => {
-  //   const categoryId = nextRouterState.params.categoryId
-  //   dispatch(fetchProductsByCategoryId(categoryId))
-  // }
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Routes)
+
+      // <Route path="/users/me" component={MyProfile} onEnter={onUserEnter}/>
 

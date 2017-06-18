@@ -91,3 +91,12 @@ button:hover {
   color: white;
   background-color: #13073a;
 }
+
+.usersidebar {
+  display: block;
+  border-right: 1px;
+}
+
+.modal-style {
+  background-color: blue;
+}
