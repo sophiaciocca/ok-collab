@@ -4,7 +4,8 @@ import { logout } from 'APP/app/redux/auth'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
 
-import Modal, { closeStyle } from 'simple-react-modal'
+// import Modal, { closeStyle } from 'simple-react-modal'
+import Modal from 'react-modal'
 
 import Sidebar from './Sidebar'
 import Recommendations from './Recommendations'
@@ -21,7 +22,8 @@ const customStyles = {
     right: 'auto',
     bottom: 'auto',
     marginRight: '-50%',
-    transform: 'translate(-50%, -50%)'
+    transform: 'translate(-50%, -50%)',
+    color: 'blue'
   }
 };
 
@@ -32,15 +34,26 @@ class UserProfile extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {}
+    this.state = {
+      modalIsOpen: false
+    }
+
+    this.openModal = this.openModal.bind(this);
+    this.afterOpenModal = this.afterOpenModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
 
-  show() {
-    this.setState({ show: true })
+  openModal() {
+    this.setState({ modalIsOpen: true });
   }
 
-  close() {
-    this.setState({ show: false })
+  afterOpenModal() {
+    // references are now sync'd and can be accessed.
+    this.subtitle.style.color = '#f00';
+  }
+
+  closeModal() {
+    this.setState({ modalIsOpen: false });
   }
 
   // componentWillReceiveProps(newProps, oldProps) {
@@ -70,7 +83,7 @@ class UserProfile extends React.Component {
                 </div>
                 <div className="col-md-8 col-sm-6">
                   <div>
-                    <span className="inlinespan"><h1>{user.name}</h1><button onClick={this.show.bind(this)} className="btn btn-primary btn-sm btn-dark">Message</button></span>
+                    <span className="inlinespan"><h1>{user.name}</h1><button onClick={this.openModal} className="btn btn-primary btn-sm btn-dark">Message</button></span>
                     <h5>{user.city}</h5>
                   </div>
                   <div>
@@ -97,23 +110,24 @@ class UserProfile extends React.Component {
                   })) : <h5>This user doesnt have any uploads.</h5>}
                 </div>
               </div>
-              <div className="col-md-2">
+              <div>
                 <Modal
-                  className="modal-style" //this will completely overwrite the default css completely
-                  style={{ background: 'red' }} //overwrites the default background
-                  containerStyle={{ background: 'grey' }} //changes styling on the inner content area
-                  containerClassName="test"
-                  closeOnOuterClick={true}
-                  show={this.state.show}
-                  onClose={this.close}
-                  transitionSpeed={1000}>
-                  {console.log("this.state.show?", this.state.show)}
+                  isOpen={this.state.modalIsOpen}
+                  onAfterOpen={this.afterOpenModal}
+                  onRequestClose={this.closeModal}
+                  style={customStyles}
+                  contentLabel="Send Message"
+                >
 
-                  <a style={closeStyle} onClick={this.close.bind(this)}>X</a>
-                  <div>hey</div>
+                  <h2 ref={subtitle => this.subtitle = subtitle}>Send Message to {user.name}</h2>
+                  <button onClick={this.closeModal}>close</button>
+                  <div>I am a modal</div>
                   <form>
-                    <textarea />
-                    <button>Send</button>
+                    <input />
+                    <button>tab navigation</button>
+                    <button>stays</button>
+                    <button>inside</button>
+                    <button>the modal</button>
                   </form>
                 </Modal>
               </div>
