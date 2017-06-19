@@ -19,42 +19,59 @@ class Recommendations extends Component {
   constructor(props) {
     super(props)
 
-    this.state = {
-      similarUsers: []
-    }
+    this.findThreeSimilar = this.findThreeSimilar.bind(this)
 
-    // this.findThreeSimilar = this.findThreeSimilar.bind(this)
+  }
+
+  findThreeSimilar(usersList, selectedUser) {
+
+    let arrOfChosen = [];
+    let chosen = {name: ""};
+
+    console.log("SELECTED USER: ", selectedUser)
+
+
+
+    if (selectedUser.name && chosen) {
+
+      while (arrOfChosen.length < 3) {
+
+        chosen = usersList[Math.floor(Math.random() * usersList.length)];
+
+        // console.log("IN THE WHILE ABOVE THE IF. what is chosen.name?", chosen.name) //Jenny Wu (obj)
+        // console.log("IN THE WHILE ABOVE THE IF. what is selectedUser.name?", selectedUser.name) //Rob'n Delaine (obj)
+        // console.log("is chosen.name not-equal to selectedUser.name? (should be true for it to work", (chosen.name != selectedUser.name))
+        // console.log("is arrOfChosen.indexOf(chosen) == -1? (should be TRUE for it to work)", arrOfChosen.indexOf(chosen) == -1)
+        console.log("what is arrOfChosen.indexOf(chosen)???", arrOfChosen.indexOf(chosen))
+
+        if ((chosen.name != selectedUser.name) && (arrOfChosen.indexOf(chosen) < 0)) {
+          console.log("MADE IT INTO THE IF")
+          console.log("chosen: ", chosen)
+          arrOfChosen.push(chosen)
+          console.log("ARR OF CHOSEN: ", arrOfChosen)
+        }
+
+      }
+    }
+    console.log("FINAL ARRAY OF CHOSEN: ", arrOfChosen)
+    return arrOfChosen
 
   }
 
 
   render() {
-    let usersList = this.props.usersList;
-    let selectedUser = this.props.selectedUser;
-    let arrOfChosen = [];
-
-    let findThreeSimilar = () => {
-
-      console.log("SELECTED USER: ", this.props.selectedUser)
-
-      while (arrOfChosen.length < 2) {
-
-        let chosen = usersList[Math.floor(Math.random() * usersList.length)];
-        if ((chosen.name != selectedUser.name) && (arrOfChosen.indexOf(chosen) === -1)) {
-          console.log("CHOSEN: ", chosen)
-          arrOfChosen.push(chosen);
-        }
-      }
-
-      return arrOfChosen
-
-    }
+    let usersList = this.props.usersList || [];
+    let selectedUser = this.props.selectedUser || {};
 
     return (
       <div id="main">
-        <h3>You Might Like:</h3>
+        <h3>Similar Users:</h3>
         <div>
-          {usersList && selectedUser && findThreeSimilar() && findThreeSimilar().map((person, id) => <span className="rec-photo" key={id}>{person.photo}</span>)}
+          {console.log("findThreeSimilar from the return statement???", this.findThreeSimilar(usersList, selectedUser))}
+          {this.findThreeSimilar(usersList, selectedUser).map((person, id) => {
+            {console.log("person???", person)}
+            return <span key={id}><Link to={`/users/${person.id}`}><img className="rec-photo" src={person.photoUrl}/></Link></span>
+          })}
         </div>
       </div>
 

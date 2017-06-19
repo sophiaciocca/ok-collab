@@ -145,6 +145,15 @@ h4 {
   padding-left: 12%;
 }
 
+.rec-photo {
+  width: 125px;
+  height: 125px;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 8%;
+}
+
 /*
  /*MEDIA QUERIES FOR RESPONSIVITY
 /* Xtra-Small */
@@ -186,6 +195,15 @@ and (min-width : 300px) {
     padding-left: 12%;
   }
 
+  .rec-photo {
+  width: 125px;
+  height: 125px;
+  border-radius: 50%;
+  display: inline;
+  margin: 0 auto;
+  margin-right: 4%;
+}
+
 }
 
  /*Small ----------- */
@@ -211,11 +229,11 @@ and (min-width : 768px) {
     padding-left: 5%;
   }
 
-    .uploads {
+  .uploads {
     padding-left: 0%;
   }
 
-    .user-basic-info {
+  .user-basic-info {
     text-align: left;
     position: relative;
     left: 0%;
@@ -225,7 +243,7 @@ and (min-width : 768px) {
     font-size: 2.5vw;
   }
 
-    .recommendations {
+  .recommendations {
     padding-left: 15px;
   }
 }
@@ -247,6 +265,15 @@ and (min-width : 992px) {
 
   .user-text {
     padding-left: 17%;
+  }
+
+  .rec-photo {
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 8%;
   }
 }
 

@@ -131,9 +131,8 @@ class UserProfile extends React.Component {
               </div>
 
               <div className="recommendations col-md-2">
-              <h4>Similar Users:</h4>
-          {/*<Recommendations />*/}
-        </div>
+                <Recommendations />
+              </div>
 
             </div>
             : null}
