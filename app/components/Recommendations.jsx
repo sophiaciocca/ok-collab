@@ -54,7 +54,7 @@ class Recommendations extends Component {
       <div id="main">
         <h3>You Might Like:</h3>
         <div>
-          {usersList && selectedUser && findThreeSimilar() && findThreeSimilar().map((person, id) => <span key={id}>{person.name}</span>)}
+          {usersList && selectedUser && findThreeSimilar() && findThreeSimilar().map((person, id) => <span className="rec-photo" key={id}>{person.photo}</span>)}
         </div>
       </div>
 

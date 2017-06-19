@@ -8,13 +8,13 @@ const Sidebar = ({categoryList}) => {
   return (
     <sidebar>
       <section>
-        <h4>Filter By:</h4>
+        <h4>Filter Users By:</h4>
       </section>
       <hr />
       <ul className="list-unstyled">
         <li><Link to="/browse">All</Link></li>
-        <li><Link to="#">By City:</Link></li>
-        <li><Link to="#">By Skill:</Link></li>
+        <li><Link to="#">By City</Link></li>
+        <li><Link to="#">By Skill</Link></li>
       </ul>
     </sidebar>
   )

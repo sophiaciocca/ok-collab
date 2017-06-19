@@ -109,3 +109,163 @@ button:hover {
 .msg-title {
   color: black;
 }
+
+.sidebar {
+  padding: 2em;
+}
+
+h4 {
+  font-size: 1.5vw;
+}
+
+.sidebar h4 {
+  font-weight: bold;
+  color: black;
+}
+
+.sidebar a {
+  color: #403075;
+  text-decoration: none;
+  font-size: 1.5vw;
+}
+
+.sidebar a:hover {
+  color: grey;
+}
+
+.userlist {
+  padding-left: 1em;
+}
+
+.container-fluid {
+  padding: 5%;
+}
+
+.user-text {
+  padding-left: 12%;
+}
+
+/*
+ /*MEDIA QUERIES FOR RESPONSIVITY
+/* Xtra-Small */
+@media only screen
+and (min-width : 300px) {
+  /*body {
+    background-color: blue;
+  }*/
+
+  h4 {
+    font-size: 3.75vw;
+  }
+
+  .sidebar {
+    text-align: center;
+    padding: 0px;
+  }
+
+  .sidebar a {
+    font-size: 3.25vw;
+  }
+
+  .circle-img {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .user-basic-info {
+    text-align: center;
+    position: relative;
+    left: -4%;
+  }
+
+    .uploads {
+    padding-left: 12%;
+  }
+
+  .recommendations {
+    padding-left: 12%;
+  }
+
+}
+
+ /*Small ----------- */
+@media only screen
+and (min-width : 768px) {
+  /*body {
+    background-color: red;
+  }*/
+
+  h4 {
+    font-size: 3vw;
+  }
+
+  .sidebar a {
+  font-size: 2vw;
+  }
+
+  .user-header {
+    font-size: 2vw;
+  }
+
+  .user-text {
+    padding-left: 5%;
+  }
+
+    .uploads {
+    padding-left: 0%;
+  }
+
+    .user-basic-info {
+    text-align: left;
+    position: relative;
+    left: 0%;
+  }
+
+  .sidebar h4 {
+    font-size: 2.5vw;
+  }
+
+    .recommendations {
+    padding-left: 15px;
+  }
+}
+
+/* Medium ----------- */
+@media only screen
+and (min-width : 992px) {
+  /*body {
+    background-color: orange;
+  }*/
+
+  h4 {
+    font-size: 1.75vw;
+  }
+
+  .sidebar a {
+    font-size: 1.5vw;
+  }
+
+  .user-text {
+    padding-left: 17%;
+  }
+}
+
+/* Large ----------- */
+@media only screen
+and (min-width : 1200px) {
+  /*body {
+  background-color: purple;
+  }*/
+
+  .sidebar h4 {
+    font-size: 1.5vw;
+  }
+
+  .userlist-name {
+    font-size: 1.5vw;
+  }
+
+  .user-header {
+    font-size: 1.5vw;
+  }
+}

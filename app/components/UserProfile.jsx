@@ -83,30 +83,30 @@ class UserProfile extends React.Component {
                 <div className="col-md-4 col-sm-6">
                   <img className="circle-img" src={user.photoUrl} />
                 </div>
-                <div className="col-md-8 col-sm-6">
-                  <div>
+                <div className="user-text col-md-8 col-sm-6">
+                  <div className="user-basic-info">
                     <span className="inlinespan"><h1>{user.name}</h1><button onClick={this.openModal} className="btn btn-primary btn-sm btn-dark">Message</button></span>
                     <h5>{user.city}</h5>
                   </div>
                   <div>
-                    <h4>About Me:</h4>
+                    <h4 className="user-header">About Me:</h4>
                     <p>{user.blurb}</p>
                   </div>
                   <div>
-                    <h4>Looking For:</h4>
+                    <h4 className="user-header">Looking For:</h4>
                     <p>{user.lookingFor}</p>
                   </div>
                   <div>
-                    <h4>Genres I Like:</h4>
+                    <h4 className="user-header">Genres I Like:</h4>
                     <p>{user.style}</p>
                   </div>
                   <div>
-                    <h4>Skills:</h4>
+                    <h4 className="user-header">Skills:</h4>
                     <h5><span>{user.skills && user.skills.map((skill, id) => <span key={id}><Link to="#">{skill}</Link><span>, </span></span>)}</span></h5>
                   </div>
                 </div>
-                <div>
-                  <h4>Uploads:</h4>
+                <div className="uploads">
+                  <h4 className="user-header">Uploads:</h4>
                   {user.uploads ? (user.uploads.map((upload, id) => {
                     return <iframe key={id} width="300" height="175" src={`${upload}`} frameBorder="0" allowFullScreen></iframe>
                   })) : <h5>This user doesnt have any uploads.</h5>}
@@ -130,9 +130,10 @@ class UserProfile extends React.Component {
                 </Modal>
               </div>
 
-              {/*  <div className="col-md-2">
-          <Recommendations />
-        </div> */}
+              <div className="recommendations col-md-2">
+              <h4>Similar Users:</h4>
+          {/*<Recommendations />*/}
+        </div>
 
             </div>
             : null}
