@@ -11,8 +11,8 @@ function seedEverything() {
   }
   // if they have dependencies invoke below with seeded (order matters)
   seeded.products = products(seeded)
-  seeded.orders = orders(seeded)
-  seeded.orderItems = orderItems(seeded)
+  // seeded.orders = orders(seeded)
+  // seeded.orderItems = orderItems(seeded)
   seeded.productItems = productItems(seeded)
   seeded.cartItems = cartItems(seeded)
   return Promise.props(seeded)
@@ -60,7 +60,7 @@ const users = seed(User, {
     name: "Rob'n Delaine",
     password: '1234',
     city: 'San Francisco',
-    photoUrl: 'http://tinyurl.com/ycld3l8h',
+    photoUrl: 'http://i1097.photobucket.com/albums/g343/sophiaciocca/robn%20Cropped_zps98nvplpi.jpg',
     blurb: "Hi! I'm Rob'n. I'm a singer, songwriter, and violinist. I love open mics and performing, but also  just make music for the sake of making music. I also have perfect pitch.",
     style: "Jazz, blues, a cappella, indie folk, anything",
     lookingFor: "A band or someone who wants to form a duo.",
@@ -140,29 +140,29 @@ const categories = seed(Category, {
   }
 })
 
-const orders = seed(Order, ({users, products}) => ({
-  order1: {
-    product_id: products.galaxy.id,
-    user_id: users.sophia.id
-  },
-  order2: {
-    product_id: products.snazzyworkout.id,
-    user_id: users.bono.id
-  }
-}))
+// const orders = seed(Order, ({users, products}) => ({
+//   order1: {
+//     product_id: products.galaxy.id,
+//     user_id: users.sophia.id
+//   },
+//   order2: {
+//     product_id: products.snazzyworkout.id,
+//     user_id: users.bono.id
+//   }
+// }))
 
-const orderItems = seed(OrderItem, ({orders, products}) => ({
-  itemOne: {
-    quantity: 1,
-    product_id: products.galaxy.id,
-    order_id: orders.order1.id
-  },
-  itemTwo: {
-    quantity: 1,
-    product_id: products.snazzyworkout.id,
-    order_id: orders.order2.id
-  }
-}))
+// const orderItems = seed(OrderItem, ({orders, products}) => ({
+//   itemOne: {
+//     quantity: 1,
+//     product_id: products.galaxy.id,
+//     order_id: orders.order1.id
+//   },
+//   itemTwo: {
+//     quantity: 1,
+//     product_id: products.snazzyworkout.id,
+//     order_id: orders.order2.id
+//   }
+// }))
 
 // if there are dependencies, the second param is a function that takes in the seeded object, so that you can use any of the previously made instances
 const products = seed(Product, ({categories}) => ({
@@ -409,4 +409,4 @@ function seed(Model, rows) {
   }
 }
 
-module.exports = Object.assign(seed, {users, products, productItems, cartItems, orders, orderItems, categories})
+module.exports = Object.assign(seed, {users, products, productItems, cartItems, categories})
