@@ -1,7 +1,7 @@
 {
   "name": "ok-collab",
   "version": "0.0.1",
-  "description": "A happy little skeleton.",
+  "description": "A social platform that allows musicians to find other musicians to collaborate with.",
   "main": "index.js",
   "engines": {
     "node": ">= 7.0.0"
@@ -28,19 +28,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/queerviolet/bones.git"
+    "url": "git+https://github.com/sophiaciocca/ok-collab"
   },
   "keywords": [
     "react",
     "redux",
-    "skeleton"
+    "music",
+    "socialnetwork",
+    "postgreSQL",
+    "express",
+    "node.js"
   ],
-  "author": "Ashi Krishnan <me@ashi.works>",
+  "author": "Sophia Ciocca <sophiaciocca@gmail.com>",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/queerviolet/bones/issues"
-  },
-  "homepage": "https://github.com/queerviolet/bones#readme",
+  "homepage": "https://github.com/sophiaciocca/ok-collab#readme",
   "dependencies": {
     "axios": "^0.15.2",
     "babel-preset-stage-2": "^6.18.0",
