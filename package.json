@@ -11,7 +11,7 @@
     "validate": "check-node-version --node '>= 7.0.0'",
     "setup": "./bin/setup",
     "prep": "npm run validate && npm run setup",
-    "postinstall": "webpack -p",
+    "postinstall": "npm run prep",
     "build": "webpack",
     "build-watch": "npm run build -- -w",
     "build-dev": "cross-env NODE_ENV=development npm run build-watch",
@@ -24,7 +24,8 @@
     "seed": "node db/seed.js",
     "deploy-heroku": "bin/deploy-heroku.sh",
     "lint": "esw . --ignore-path .gitignore --ext '.js,.jsx'",
-    "lint-watch": "npm run lint -- -w"
+    "lint-watch": "npm run lint -- -w",
+    "heroku-prebuild": "webpack -p"
   },
   "repository": {
     "type": "git",
