@@ -16,7 +16,7 @@
     "build-watch": "npm run build -- -w",
     "build-dev": "cross-env NODE_ENV=development npm run build-watch",
     "build-branch": "bin/build-branch.sh",
-    "start": "webpack & node server/start.js",
+    "start": "node node_modules/webpack/bin/webpack.js & node server/start.js",
     "start-watch": "nodemon server/start.js --watch server --watch db --watch index.js --watch package.json",
     "start-dev": "cross-env NODE_ENV=development npm run start-watch",
     "test": "mocha --compilers js:babel-register --watch-extensions js,jsx app/**/*.test.js app/**/*.test.jsx server/**/*.test.js db/**/*.test.js",
@@ -24,7 +24,7 @@
     "seed": "node db/seed.js",
     "deploy-heroku": "bin/deploy-heroku.sh",
     "lint": "esw . --ignore-path .gitignore --ext '.js,.jsx'",
-    "lint-watch": "npm run lint -- -w"
+    "lint-watch": "npm run lint -- -w",
   },
   "repository": {
     "type": "git",
