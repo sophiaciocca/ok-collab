@@ -77,7 +77,8 @@
     "sequelize": "^3.24.6",
     "simple-react-modal": "^0.5.1",
     "sinon": "^1.17.6",
-    "sinon-chai": "^2.8.0"
+    "sinon-chai": "^2.8.0",
+    "webpack": "^2.2.1"
   },
   "devDependencies": {
     "babel": "^6.5.2",
@@ -102,7 +103,6 @@
     "nodemon": "^1.11.0",
     "supertest": "^3.0.0",
     "volleyball": "^1.4.1",
-    "webpack": "^2.2.1",
     "webpack-livereload-plugin": "^0.10.0"
   }
 }
